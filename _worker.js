@@ -1,7 +1,7 @@
 // @ts-nocheck
 // <!--GAMFC-->version base on commit 43fad05dcdae3b723c53c226f8181fc5bd47223e, time is 2023-06-22 15:20:02 UTC<!--GAMFC-END-->.
 // @ts-ignore
-// https://github.com/bia-pain-bache/M2rayNG-Worker-Panel
+// https://github.com/icloudflare-ux/Pro-Panel
 
 import { connect } from 'cloudflare:sockets';
 
@@ -1112,22 +1112,22 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
 
 function generateRemark(index, port, protocol, fragType) {
     let remark = '';
-    const type = fragType ? ' ⇢F' : '';
+    const type = fragType ? ' ⇢𝓕' : '';
     switch (index) {
         case 0:
         case 1:
-            remark = `⇢ ${protocol}${type} - ⇢Ðoϻɑiͷ ${index + 1} : ${port}`;
+            remark = `👑 ${protocol}${type} - ✌Ð𝓸ϻɑ𝓲ͷ✌ ${index + 1} : ${port}`;
             break;
         case 2:
         case 3:
-            remark = `⇢ ${protocol}${type} - ⇢IPV4 ${index - 1} : ${port}`;
+            remark = `🔥 ${protocol}${type} - ✌𝓘𝓟𝓥4✌ ${index - 1} : ${port}`;
             break;
         case 4:
         case 5:
-            remark = `⇢ ${protocol}${type} - ⇢IPV6 ${index - 3} : ${port}`;
+            remark = `🚀 ${protocol}${type} - ✌𝓘𝓟𝓥6✌ ${index - 3} : ${port}`;
             break;
         default:
-            remark = `⇢ ${protocol}${type} - ⇢CLEAN IP ${index - 5} : ${port}`;
+            remark = `🕊️ ${protocol}${type} - ✌𝓒𝓛𝓔𝓐𝓝 𝓘𝓟✌ ${index - 5} : ${port}`;
             break;
     }
 
@@ -2690,7 +2690,7 @@ async function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> ⇢</h1>
+            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span>  🥷</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2761,7 +2761,7 @@ function renderErrorPage (message, error, refer) {
 
     <body>
         <div id="error-container">
-            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🦁</h1>
+            <h1>M2rayNG Panel <span style="font-size: smaller;">${panelVersion}</span> 🥷</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/icloudflare-ux/Pro-Panel/blob/main/README.md">documents</a>' 
@@ -2960,8 +2960,8 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
                     i === 1
                     ? `warp-ir_${index + 1}` 
                     : client === 'hiddify' 
-                        ? `⚪ WoW Pro ${index + 1} 🌍` 
-                        : `⚫ WoW ${index + 1} 🌍` , 
+                        ? `⚪ WoW Pro ${index + 1} 🇩🇪` 
+                        : `⚫ WoW ${index + 1} 🇩🇪` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -2982,7 +2982,7 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `warp-ir_${index + 1}` : `⚫ WoW ${index + 1} 🌍`, 
+                    i === 1 ? `warp-ir_${index + 1}` : `⚫ WoW ${index + 1} 🇩🇪`, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3783,7 +3783,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = client === 'M2rayNG' ? `⇢ M2rayNG - WoW Pro ${index/2 + 1} 🌍` : `⇢ M2rayNG - WoW ${index/2 + 1} 🌍`;
+            xrayWoWConfig.remarks = client === 'M2rayNG' ? `⇢ M2rayNG - WoW Pro ${index/2 + 1} 🇩🇪` : `⇢ M2rayNG - WoW ${index/2 + 1} 🇩🇪`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
